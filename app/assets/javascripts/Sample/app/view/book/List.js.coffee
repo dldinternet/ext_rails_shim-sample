@@ -3,10 +3,16 @@ Ext.define 'Sample.view.book.List',
   alias: 'widget.booklist'
   title: 'All Books'
   store: 'Books'
-  initComponent: ->
-    @columns = [
-      {header: 'Title',  dataIndex: 'title',  flex: 1},
-      {header: 'Author', dataIndex: 'author', flex: 1}
-    ]
-
-    @callParent arguments
+  columns: [
+    {header: 'Id', dataIndex: 'id', align: 'right'},
+    {header: 'Title',  dataIndex: 'title',  flex: 1},
+    {header: 'Author', dataIndex: 'author', flex: 1},
+    {header: 'Created', dataIndex: 'created_at', flex: 1},
+    {header: 'Updated', dataIndex: 'updated_at', flex: 1},
+  ]
+  dockedItems: [ {
+    xtype: 'pagingtoolbar'
+    store: 'Books'
+    dock: 'bottom'
+    displayInfo: true
+  } ]
